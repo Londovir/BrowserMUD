@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+/* Add application styles & imports to this file! */
+body {
+    background-color: beige;
+    text-align: center;
+  }
+
+  h1, h2 {
+    font-family: Lato;
+  }
+
+  div.formdiv {
+    color: black;
+    margin-bottom: 20px;
+  }
+
+  div.formdiv strong {
+    margin-right: 25px;
+    vertical-align: top;
+  }
+
+  div.formdiv textarea {
+    width: 80%;
+  }
+
+  div.formdiv.attribute strong {
+    min-width: 50px;
+    display: inline-block;
+  }
+
+  div#FormDump {
+    color: blue;
+  }

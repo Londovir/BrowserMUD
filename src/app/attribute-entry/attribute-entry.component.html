@@ -1,0 +1,8 @@
+<strong [class.error]="control?.errors && control?.dirty">{{label}}</strong>
+<input type="number" [formControl]="control">
+<span class="margin-left" *ngIf="control?.value != original?.value">
+    <span *ngIf="control?.value > original?.value">+</span>
+        {{control?.value - original?.value}}
+</span>
+<div *ngIf="control?.hasError('required') && control?.dirty"><em>The {{text}} number is required!</em></div>
+<div *ngIf="(control?.hasError('min') || control?.hasError('max')) && control?.dirty"><em>The {{text}} is invalid. It should be from {{minvalue}} to {{maxvalue}}.</em></div>

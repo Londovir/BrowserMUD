@@ -68,15 +68,15 @@ export class CharacterEditorComponent implements OnInit {
             Wis: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
             Int: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
             Chr: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            PoolPoints: [null, Validators.min(0)],
+            PoolPoints: [null],
             // Original values
-            _Str: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _Dex: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _Con: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _Wis: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _Int: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _Chr: [null, [Validators.required, Validators.min(1), Validators.max(18)]],
-            _PoolPoints: [null, Validators.min(0)]
+            _Str: [null],
+            _Dex: [null],
+            _Con: [null],
+            _Wis: [null],
+            _Int: [null],
+            _Chr: [null],
+            _PoolPoints: [null]
         });
 
         this.CharacterForm.valueChanges.subscribe(newvalue => {
@@ -114,11 +114,14 @@ export class CharacterEditorComponent implements OnInit {
                 PoolPoints: 0
             });
 
+            this.PoolPoints.clearValidators();
+
             return;
         }
 
         // Roll 3d6 for each stat
         this.RerollStats();
+        this.PoolPoints.setValidators(Validators.min(0));
     }
 
     GetForm() {

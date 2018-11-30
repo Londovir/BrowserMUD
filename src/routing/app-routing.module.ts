@@ -3,8 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CharacterEditorComponent } from 'app/character-editor/character-editor.component';
 import { HomeComponent } from 'app/home/home.component';
+import { ShopComponent } from 'app/shop/shop.component';
 
 const routes: Routes = [
+    {
+        path: 'shop', component: ShopComponent
+    },
     {
         path: 'home', component: HomeComponent
     },

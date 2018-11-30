@@ -1,0 +1,30 @@
+table {
+    width: 50%;
+}
+
+.centered {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cells {
+}
+
+td, th {
+    border-bottom:1px solid black;
+    border-left:1px solid black;
+}
+
+th {
+    border-top:1px solid black;
+}
+
+td:last-child, th:last-child {
+    border-right:1px solid black;
+}
+
+tr.stripe {
+    background-color: pink;
+}

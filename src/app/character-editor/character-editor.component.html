@@ -12,10 +12,10 @@
     </div>
     <div class="formdiv">
       <strong>Starting Class:</strong>
-      <select name="Class" formControlName="Class" (change)="FillClass()" id="classselect">
+      <mat-select name="Class" formControlName="Class" (change)="FillClass()" id="classselect">
         <!-- <option>Select...</option> -->
-        <option *ngFor="let item of Classes" [ngValue]="item">{{item.Name}}</option>
-      </select>
+        <mat-option *ngFor="let item of Classes" [value]="item">{{item.Name}}</mat-option>
+      </mat-select>
     </div>
     <div class="formdiv"><strong>Attributes:</strong></div>
     <div class="formdiv attribute">
@@ -45,4 +45,4 @@
     <button type="button" (click)="GetForm()" id="SubmitButton" [disabled]="CharacterForm.invalid">Finished</button>
   </form>
   <h4>Form contents:</h4>
-  <div id="FormDump" class="formdiv" style="color:green"></div>
+  <div>{{PoolPoints.errors | json}}</div>

@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+    <a mat-icon-button routerLink="/home">
+        <mat-icon>home</mat-icon>
+    </a>
+    <h1>Shop!</h1>
+</mat-toolbar>
+
+<div class="centered">
+   <table class="cells" cellspacing="0">
+        <thead>
+           <tr>
+               <th>Weapon Name</th>
+               <th>Class Using</th>
+               <th>Cost</th>
+               <th></th>
+           </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let w of WeaponsForSale;let ev = odd" [class.stripe]="ev == true">
+                <td>{{w.Name}}</td>
+                <td>{{w.Class}}</td>
+                <td>{{w.Cost}}</td>
+                <td>
+                    <button mat-raised-button color="primary" (click)="BuyIt(w)">
+                        <mat-icon>attach_money</mat-icon>
+                        Buy
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">I want it all!</td>
+                <td>
+                    <button mat-raised-button color="accent">Buy It All</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

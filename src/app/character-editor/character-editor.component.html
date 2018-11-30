@@ -1,0 +1,48 @@
+<h1>Character Editor</h1>
+  <form [formGroup]="CharacterForm">
+    <div class="formdiv">
+      <strong>Name: </strong>
+      <input placeholder="Name here..." name="Name" formControlName="Name" />
+      <div><em>Note: 20 characters max</em></div>
+    </div>
+    <div class="formdiv">
+      <strong [class.error]="Background.errors">Background: </strong>
+      <textarea rows="5" placeholder="Enter a background here..." name="Background" formControlName="Background"></textarea>
+      <div><em>Note: 50 characters max ({{Background.value?.length || 0}}/50)</em></div>
+    </div>
+    <div class="formdiv">
+      <strong>Starting Class:</strong>
+      <mat-select name="Class" formControlName="Class" (change)="FillClass()" id="classselect">
+        <!-- <option>Select...</option> -->
+        <mat-option *ngFor="let item of Classes" [value]="item">{{item.Name}}</mat-option>
+      </mat-select>
+    </div>
+    <div class="formdiv"><strong>Attributes:</strong></div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Str" [original]="_Str" text="Strength" label="STR" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Dex" [original]="_Dex" text="Dexterity" label="DEX" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Con" [original]="_Con" text="Constitution" label="CON" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Int" [original]="_Int" text="Intelligence" label="INT" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Wis" [original]="_Wis" text="Wisdom" label="WIN" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div class="formdiv attribute">
+        <app-attribute-entry [control]="Chr" [original]="_Chr" text="Charisma" label="CHR" [minvalue]="1" [maxvalue]="18"></app-attribute-entry>
+    </div>
+    <div *ngIf="CharacterForm.get('Class').value?.IsCustom">
+        Available Pool Points: {{PoolPoints.value}}
+    </div>
+    <app-progress-bar class="margin-top margin-bottom" [value]="PoolPctAvailable" color="#8f8fde"></app-progress-bar>
+    <button type="button" *ngIf="CharacterForm.get('Class').value?.IsCustom" (click)="RerollStats()">Re-roll Stats</button>
+    <div *ngIf="CharacterForm.invalid && CharacterForm.dirty" class="error"><em>There are one or more errors in the form. Please check the form and correct all errors.</em></div>
+    <button type="button" (click)="GetForm()" id="SubmitButton" [disabled]="CharacterForm.invalid">Finished</button>
+  </form>
+  <h4>Form contents:</h4>
+  <div>{{PoolPoints.errors | json}}</div>

@@ -12,6 +12,7 @@ import { CharacterEditorComponent } from './character-editor/character-editor.co
 import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MapComponent } from './map/map.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CharacterEditorComponent,
     HomeComponent,
     ShopComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,

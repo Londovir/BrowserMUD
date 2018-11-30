@@ -1,0 +1,8 @@
+<div class="edge">
+    <div *ngFor="let row of Maze" class="mazecell">
+        <span *ngFor="let col of row">
+            <span *ngIf="col == 0">#</span>
+            <span *ngIf="col == 1">&nbsp;</span>
+        </span>
+    </div>
+</div>

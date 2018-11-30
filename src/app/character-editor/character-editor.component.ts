@@ -131,7 +131,7 @@ export class CharacterEditorComponent implements OnInit {
     }
 
     GetRandom(low: number, high: number) {
-        return Math.floor(Math.random() * (high - low)) + low;
+        return Math.floor(Math.random() * (high - low + 1)) + low;
     }
 
     RerollStats() {
